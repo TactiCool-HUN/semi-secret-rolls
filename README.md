@@ -9,4 +9,4 @@ If you have other suggestions please let me know!
 
 This is basically the first gitHub repo I have that is meant to be actively public facing so sorry if something is off!
 
-Currently only a test version is available through this manifest url: https://github.com/TactiCool-HUN/semi-secret-rolls/releases/download/0.1.0/module.json
+Currently only a test version is available through this manifest url: https://github.com/TactiCool-HUN/semi-secret-rolls/releases/download/0.1.1/module.json
