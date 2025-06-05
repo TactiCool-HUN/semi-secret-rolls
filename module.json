@@ -15,15 +15,5 @@
       "discord": "tacticool_",
       "flags": {}
     }
-  ],
-  "languages": [
-    {
-      "lang": "en",
-      "name": "English",
-      "path": "languages/en.json"
-    }
-  ],
-  "styles": [
-    "styles/semi-secret-rolls.css"
   ]
 }
