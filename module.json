@@ -2,8 +2,10 @@
   "id": "semi-secret-rolls",
   "title": "Semi Secret Rolls",
   "version": "1.0.0",
+  "manifest": "https://github.com/TactiCool-HUN/semi-secret-rolls/blob/master/module.json",
+  "download": "https://github.com/TactiCool-HUN/semi-secret-rolls/blob/master/module.zip",
   "compatibility": {
-    "minimum": 13,
+    "minimum": 12,
     "verified": 13.344
   },
   "scripts": [
