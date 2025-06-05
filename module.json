@@ -1,0 +1,29 @@
+{
+  "id": "semi-secret-rolls",
+  "title": "Semi Secret Rolls",
+  "version": "1.0.0",
+  "compatibility": {
+    "minimum": 13,
+    "verified": 13.344
+  },
+  "scripts": [
+    "scripts/semi-secret-rolls.js"
+  ],
+  "authors": [
+    {
+      "name": "Tacti",
+      "discord": "tacticool_",
+      "flags": {}
+    }
+  ],
+  "languages": [
+    {
+      "lang": "en",
+      "name": "English",
+      "path": "languages/en.json"
+    }
+  ],
+  "styles": [
+    "styles/semi-secret-rolls.css"
+  ]
+}
