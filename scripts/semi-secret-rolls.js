@@ -18,6 +18,7 @@ Hooks.on('createChatMessage', async (chatLog, message) => {
     const speaker = chatLog.speaker;
     let isHiddenFromPlayer = false;
     let rolls = [];
+    let content = "You might've rolled one of these:";
 
     // detect whether the player sees the roll outcome or not
     if (chatLog.flags.pf2e?.context?.rollMode === "blindroll") {
@@ -49,11 +50,15 @@ Hooks.on('createChatMessage', async (chatLog, message) => {
     // shuffle the results with the original
     rolls = shuffle(rolls);
 
+    for (let i = 0; i < 4; i++) {
+        content += await rolls[i].render();
+    }
+
     // send the message
     ChatMessage.create({
         speaker,
-        rolls,
-        type: CONST.CHAT_MESSAGE_STYLES.ROLLS,
+        content,
+        rollMode: CONST.DICE_ROLL_MODES.PUBLIC,
         flags: {
             "semiSecretRolls": {
                 semiSecret: true
