@@ -9,23 +9,23 @@ function shuffle(array) {
 }
 
 Hooks.on('createChatMessage', async (chatLog, message) => {
-    //console.log(chatLog);
-    //console.log(message);
+    if (chatLog.flags.semiSecretRolls?.semiSecret || chatLog.author.isGM) {
+        return
+    }
+
+    console.log(chatLog);
+    console.log(message);
     const speaker = chatLog.speaker;
     let isHiddenFromPlayer = false;
     let rolls = [];
 
     // detect whether the player sees the roll outcome or not
-    try {
-        if (chatLog.flags.pf2e.context.rollMode === "blindroll") {
-            isHiddenFromPlayer = true;
-        } else if (chatLog.flags.pf2e.context.traits.includes("secret")) {
-            isHiddenFromPlayer = true;
-        }
-    } catch (e) {
-        if (message.rollMode === "blindroll") {
-            isHiddenFromPlayer = true;
-        }
+    if (chatLog.flags.pf2e?.context?.rollMode === "blindroll") {
+        isHiddenFromPlayer = true;
+    } else if (chatLog.flags.pf2e?.context?.traits.includes("secret")) {
+        isHiddenFromPlayer = true;
+    } else if (message.rollMode === "blindroll") {
+        isHiddenFromPlayer = true;
     }
 
     if (!isHiddenFromPlayer) {
@@ -55,8 +55,8 @@ Hooks.on('createChatMessage', async (chatLog, message) => {
         rolls,
         type: CONST.CHAT_MESSAGE_STYLES.ROLLS,
         flags: {
-            "my-module": {
-                triggeredBy: message.id
+            "semiSecretRolls": {
+                semiSecret: true
             }
         }
     });
