@@ -1,5 +1,5 @@
 # Origins
-This module has been inspired by reddit user u/Ahaskins [post](https://www.reddit.com/r/Pathfinder2e/comments/1230ox7/house_rule_alternative_to_secret_rolls_the/) about rolling 4 public dice to rolls secret rolls, from which only the GM knows which one is the true one.
+This module has been inspired by reddit user u/Ahaskins [post](https://www.reddit.com/r/Pathfinder2e/comments/1230ox7/house_rule_alternative_to_secret_rolls_the/) about rolling 4 public dice to roll secret rolls, from which only the GM knows which one is the true one.
 
 # You can support me on Ko-Fi!
 Not at all required but I'm always happy to have a bit more spending money, uni life is though >.<
