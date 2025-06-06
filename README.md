@@ -3,23 +3,30 @@ This module has been inspired by reddit user u/Ahaskins [post](https://www.reddi
 
 # You can support me on Ko-Fi!
 Not at all required but I'm always happy to have a bit more spending money, uni life is though >.<
+
 https://ko-fi.com/tacticool
 
 # What does it do?
 Whenever a blind or secret roll is made it rolls 4 times and shows all 4 to the players, only one of it is the actual outcome (they don't know which). Meanwhile the original is still shown to the GM(s).
 
 ## Settings
-**Ignore GMs**
+### Ignore GMs
+
 GM side setting.
+
 By default this is turned on, as GMs don't really need this feature, but you can turn it off if you want it for roleplay or similar purposes (warning! it will show the die formula to the players)
 
-**Semi-Secret Dice Amount**
+### Semi-Secret Dice Amount
+
 GM side setting.
+
 Can adjust how many dice are rolled (defaults to 4, includes the original).
 If set to 0 (and after a reload) everyone can set their own custom dice amount as a client side setting.
 
-**Semi-Secret Visibility**
+### Semi-Secret Visibility
+
 GM side setting.
+
 Adjust who sees the semi-secret rolls:
 - Everyone
 - Everyone except the GM
