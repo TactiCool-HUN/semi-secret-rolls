@@ -114,7 +114,7 @@ Hooks.on('createChatMessage', async (chatLog, message) => {
     let isHiddenFromPlayer = false;
     let rolls = [];
     let whisperIds = [];
-    let content = "You might've rolled one of these:";
+    let content = "You rolled one of these:";
     let mask_dice_amount
 
     if (game.settings.get('semi-secret-rolls','semiSecretDiceGlobal') === 0) {
