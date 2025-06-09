@@ -39,4 +39,4 @@ If you have other suggestions for settings or features please let me know by ope
 This is basically the first gitHub repo I have that is meant to be actively public facing so sorry if something is off!
 
 # Install
-Currently only a test version is available through this manifest url: https://github.com/TactiCool-HUN/semi-secret-rolls/releases/download/0.1.3/module.json
+Currently only a test version is available through this manifest url: https://github.com/TactiCool-HUN/semi-secret-rolls/releases/latest/download/module.json
