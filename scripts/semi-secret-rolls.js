@@ -137,7 +137,8 @@ Hooks.on('createChatMessage', async (chatLog, message) => {
 
     let formula = chatLog.rolls[0]._formula
 
-    rolls.push(chatLog.rolls[0]);
+    const originalRollData = chatLog.rolls[0].toJSON();
+    rolls.push(Roll.fromData(originalRollData));
     rolls[0].options = {};
 
     for (let i = 0; i < (mask_dice_amount - 1); i++) {
@@ -146,6 +147,7 @@ Hooks.on('createChatMessage', async (chatLog, message) => {
         rolls.push(roll);
     }
 
+    console.log(rolls);
     rolls = shuffle(rolls);
 
     for (let i = 0; i < mask_dice_amount; i++) {
