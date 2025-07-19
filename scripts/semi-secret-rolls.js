@@ -1,6 +1,16 @@
 console.log('semi-secret-rolls | Init begin');
 
 Hooks.on('init', () => {
+    game.settings.register('semi-secret-rolls', 'softDisable', {
+        name: '[GM] Disable Module',
+        hint: 'Disables the module without reloading (works immediately for everyone).',
+        scope: 'world',
+        config: true,
+        type: Boolean,
+        default: false,
+        requiresReload: false
+    });
+
     game.settings.register('semi-secret-rolls', 'ignoreGM', {
         name: '[GM] Ignore GMs',
         hint: 'If turned ON, then it will not roll semi-secret rolls for Gamemaster accounts.',
@@ -47,6 +57,16 @@ Hooks.on('init', () => {
             3: "Player and the GM",
             4: "Only the player",
         },
+    })
+
+    game.settings.register('semi-secret-rolls', 'dividerDots', {
+        name: '[Client] Divider Dots',
+        hint: 'Places the little · in between the rolls for better visibility.',
+        scope: 'client',
+        config: true,
+        type: Boolean,
+        default: true,
+        requiresReload: false
     })
 
     /*game.settings.register('semi-secret-rolls', 'test', {
@@ -97,6 +117,9 @@ function getSpeaker(user) {
 }
 
 Hooks.on('createChatMessage', async (chatLog, message) => {
+    if (game.settings.get('semi-secret-rolls','softDisable')) {
+        return;
+    }
     if (chatLog.author.id !== game.user.id) {
         return;
     }
@@ -152,6 +175,9 @@ Hooks.on('createChatMessage', async (chatLog, message) => {
     rolls = shuffle(rolls);
 
     for (let i = 0; i < mask_dice_amount; i++) {
+        if (i !== 0 && game.settings.get('semi-secret-rolls', 'dividerDots')) {
+            content += "·";
+        }
         content += await rolls[i].render();
     }
 
