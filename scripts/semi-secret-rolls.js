@@ -1,5 +1,4 @@
 console.log('semi-secret-rolls | Init begin');
-const moduleId = 'semi-secret-rolls';
 
 Hooks.on('init', () => {
     game.settings.register('semi-secret-rolls', 'softDisable', {
@@ -208,7 +207,7 @@ Hooks.on('init', () => {
 });
 
 Hooks.on("ready", () => {
-    const moduleData = game.modules.get(moduleId);
+    const moduleData = game.modules.get('semi-secret-rolls');
     const debug = game.settings.get('semi-secret-rolls','debugLogging');
     if (debug) console.log('Module version:', moduleData.version);
 
@@ -273,18 +272,19 @@ Hooks.on('createChatMessage', async (chatLog, message) => {
     if (debug) console.log('message', message);
 
     let isHiddenFromPlayer = false;
-    if (chatLog.flags.pf2e?.context?.rollMode === 'blindroll') {
-        if (debug) console.log('trigger module due to: \'blindroll\' pf2e roll mode');
+    if (chatLog.flags.pf2e?.context?.messageMode === 'blind') {
+        if (debug) console.log('trigger module due to: \'blind\' pf2e message mode');
         isHiddenFromPlayer = true;
     } else if (chatLog.flags.pf2e?.context?.traits.includes('secret')) {
         if (debug) console.log('trigger module due to: \'secret\' trait');
         isHiddenFromPlayer = true;
-    } else if (message.rollMode === 'blindroll') {
-        if (debug) console.log('trigger module due to: \'blindroll\' roll mode');
+    } else if (message.messageMode === 'blind') {
+        if (debug) console.log('trigger module due to: \'blind\' message mode');
         isHiddenFromPlayer = true;
     }
 
     if (!isHiddenFromPlayer) {
+        if (debug) console.log('no triggers spotted, stopping');
         return;
     }
 
