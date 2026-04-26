@@ -275,8 +275,14 @@ Hooks.on('createChatMessage', async (chatLog, message) => {
     if (chatLog.flags.pf2e?.context?.messageMode === 'blind') {
         if (debug) console.log('trigger module due to: \'blind\' pf2e message mode');
         isHiddenFromPlayer = true;
+    } else if (chatLog.flags.sf2e?.context?.messageMode === 'blind') {
+        if (debug) console.log('trigger module due to: \'blind\' sf2e message mode');
+        isHiddenFromPlayer = true;
     } else if (chatLog.flags.pf2e?.context?.traits.includes('secret')) {
-        if (debug) console.log('trigger module due to: \'secret\' trait');
+        if (debug) console.log('trigger module due to: pf2e \'secret\' trait');
+        isHiddenFromPlayer = true;
+    } else if (chatLog.flags.sf2e?.context?.traits.includes('secret')) {
+        if (debug) console.log('trigger module due to: sf2e \'secret\' trait');
         isHiddenFromPlayer = true;
     } else if (message.messageMode === 'blind') {
         if (debug) console.log('trigger module due to: \'blind\' message mode');
